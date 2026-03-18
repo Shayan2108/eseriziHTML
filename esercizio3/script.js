@@ -5,6 +5,8 @@ function generaElenco() {
     s += "<li> item numero: " + i + "<li>\n";
   }
   s += "</ul>\n";
-  console.log(s)
+  return s;
 }
-generaElenco();
+
+const elenco = document.getElementById("prova");
+elenco.innerHTML = generaElenco();
