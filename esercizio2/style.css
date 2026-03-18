@@ -1,0 +1,68 @@
+body{
+    background-color:brown;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0,0,0,0;
+}
+.pagina{
+    background-color: aquamarine;
+    margin: auto;
+    padding: 100px;
+    border-radius: 25px;
+    width: 70%;
+}
+.titolo{
+    color: red;
+    font-size: 75px;
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+}
+.contenitoreTabella{
+    background-color: yellow;
+    display: flex;
+    justify-content: center;
+
+}
+table{
+    background-color: lightgreen;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+}
+caption{
+    color: blue;
+    font-size: 32px;
+    font-weight: bolder;
+}
+thead th{
+    background-color: black;
+    color:white;
+    padding: 14px;
+    font-size: 18px;
+
+}
+td{
+    border: 1px solid grey;
+    padding: 12px 16px;
+    text-align: center;
+    font-size: 16px;
+}
+.orario{
+    background-color: gold;
+    color: black;
+    font-weight: bolder;
+    text-align: center;
+    padding: 16px;
+    border: 1px solid grey;
+}
+a{
+    text-decoration: none;
+    color: blue;
+    font-weight: bold;
+
+}
+a:hover{
+    color: red;
+}
+tbody td:hover{
+    background-color: blueviolet;
+}
