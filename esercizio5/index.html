@@ -1,25 +1,8 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Esempio di funzione JavaScript</title>
-    <script>
-        // Questa funzione verrà chiamata quando l'utente clicca il bottone
-        function cambiaTesto() {
-            document.getElementById("demo").innerHTML = "Hello JavaScript!";
-        }
-        
-                    // Funzione che accende la "lampadina"
-        function accendiLuce() {
-            document.getElementById("myImage").src = "lampadineAccesa.png";
-        }
-
-        // Funzione che spegne la "lampadina"
-        function spegniLuce() {
-            document.getElementById("myImage").src = "lampadinaSpenta.png";
-        }
-
-    </script>
-    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -29,11 +12,43 @@
     <p id="demo">JavaScript can change HTML content.</p>
 
     <button type="button" onclick=cambiaTesto()>Click Me!</button>
+
+    <button type="button" id="cliccaQui">clicca qui!</button>
+
     <button type="button" onclick="accendiLuce()">Turn on the light</button>
 
     <img id="myImage" src="lampadineAccesa.png" style="width:100px">
 
     <button type="button" onclick="spegniLuce()">Turn off the light</button>
+    <script>
+        function saluta() {
+            console.log("hai cliccato il bottone");
+        }
+        window.onload = function(){
+            let bottone = document.getElementById("cliccaQui");
+            bottone.addEventListener("click", saluta);
+        }
 
+
+
+        // Questa funzione verrà chiamata quando l'utente clicca il bottone
+        function cambiaTesto() {
+            document.getElementById("demo").innerHTML = "Hello JavaScript!";
+        }
+
+        // Funzione che accende la "lampadina"
+        function accendiLuce() {
+            document.getElementById("myImage").src = "lampadineAccesa.png";
+            document.body.style.backgroundColor = "rgb(121,232,33)";
+        }
+
+        // Funzione che spegne la "lampadina"
+        function spegniLuce() {
+            document.getElementById("myImage").src = "lampadinaSpenta.png";
+        }
+
+
+    </script>
 </body>
+
 </html>
