@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>esercizio JS</title>
+</head>
+<body>
+    <h1>ordine Prodotto</h1>
+    <table id="tabella">
+        <thead>
+            <tr>
+                <th>Qta</th>
+                <th>Descrizione</th>
+                <th>Costo Unico</th>
+                <th>Totale</th>
+            </tr>
+        </thead>
+        <tbody>
+             <tr>
+                <td>
+                    <input type="number" id="inputTotaleMouse" onchange="controllaNumero(this)">
+                </td>
+                <td>
+                    Mouse
+                </td>
+                <td>
+                    16
+                </td>
+                <td>
+                    <label for="" id="labelTotaleMouse"></label>
+                </td>
+             </tr>
+
+
+             <tr>
+                <td>
+                    <input type="number" id="inputTotaleTastiera" onchange="controllaNumero(this)">
+                </td>
+                <td>
+                    Tastiera
+                </td>
+                <td>
+                    25
+                </td>
+                <td>
+                    <label for="" id="labelTotaleTastiera"></label>
+                </td>
+             </tr>
+
+
+             <tr>
+                <td>
+                    <input type="number" id="inputTotaleStampante" onchange="controllaNumero(this)">
+                </td>
+                <td>
+                    Stampante
+                </td>
+                <td>
+                    350
+                </td>
+                <td>
+                    <label for="" id="labelTotaleStampante"></label>
+                </td>
+             </tr>
+
+
+
+             <tr>
+                <td>
+                    <input type="number" id="inputTotaleScanner" onchange="controllaNumero(this)"> 
+                </td>
+                <td>
+                    Scanner
+                </td>
+                <td>
+                    200
+                </td>
+                <td>
+                    <label for="" id="labelTotaleScanner"></label>
+                </td>
+             </tr>
+
+
+             <tr>
+                <td colspan="3"><button id="calcolaTotale">Totale Ordine</button></td>
+                <td><label for="" id="totaleAssoluto"></label></td>
+             </tr>
+
+
+
+        </tbody>
+
+    </table>
+
+
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>
