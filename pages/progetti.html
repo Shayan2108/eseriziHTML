@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,19 +8,26 @@
   <link rel="stylesheet" href="../style.css">
   <style>
     .search-wrap {
-      margin-bottom: 2.5rem; position: relative;
+      margin-bottom: 2.5rem;
+      position: relative;
     }
+
     .search-wrap::before {
       content: '>';
-      position: absolute; left: 1rem; top: 50%;
+      position: absolute;
+      left: 1rem;
+      top: 50%;
       transform: translateY(-50%);
       font-family: 'Share Tech Mono', monospace;
-      color: #00ff88; font-size: 1rem;
+      color: #00ff88;
+      font-size: 1rem;
     }
+
     .search-input {
-      width: 100%; max-width: 420px;
+      width: 100%;
+      max-width: 420px;
       background: #0b120b;
-      border: 1px solid rgba(0,255,136,0.20);
+      border: 1px solid rgba(0, 255, 136, 0.20);
       color: #c8f0d8;
       font-family: 'Share Tech Mono', monospace;
       font-size: 0.85rem;
@@ -27,250 +35,309 @@
       outline: none;
       transition: border-color 0.2s, box-shadow 0.2s;
     }
+
     .search-input:focus {
       border-color: #00ff88;
-      box-shadow: 0 0 15px rgba(0,255,136,0.15);
+      box-shadow: 0 0 15px rgba(0, 255, 136, 0.15);
     }
-    .search-input::placeholder { color: #5a8a6a; }
+
+    .search-input::placeholder {
+      color: #5a8a6a;
+    }
 
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
       gap: 1.5rem;
     }
+
     .project-card {
       background: #0b120b;
-      border: 1px solid rgba(0,255,136,0.20);
-      padding: 1.8rem; position: relative;
+      border: 1px solid rgba(0, 255, 136, 0.20);
+      padding: 1.8rem;
+      position: relative;
       transition: all 0.25s;
-      display: flex; flex-direction: column;
+      display: flex;
+      flex-direction: column;
     }
+
     .project-card:hover {
       border-color: #00c966;
-      box-shadow: 0 0 30px rgba(0,255,136,0.07);
+      box-shadow: 0 0 30px rgba(0, 255, 136, 0.07);
       transform: translateY(-4px);
     }
+
     .project-card::before {
-      content: ''; position: absolute;
-      top: 0; left: 0;
-      width: 3px; height: 0;
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 0;
       background: #00ff88;
       transition: height 0.3s ease;
     }
-    .project-card:hover::before { height: 100%; }
 
-    .featured { border-color: #007a3e; }
+    .project-card:hover::before {
+      height: 100%;
+    }
+
+    .featured {
+      border-color: #007a3e;
+    }
+
     .featured-badge {
-      position: absolute; top: 1rem; right: 1rem;
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
       font-family: 'Share Tech Mono', monospace;
-      font-size: 0.6rem; padding: 0.2rem 0.6rem;
-      background: #00ff88; color: #050a05;
-      font-weight: 700; letter-spacing: 0.1em;
+      font-size: 0.6rem;
+      padding: 0.2rem 0.6rem;
+      background: #00ff88;
+      color: #050a05;
+      font-weight: 700;
+      letter-spacing: 0.1em;
     }
 
     .proj-tag {
       font-family: 'Share Tech Mono', monospace;
-      font-size: 0.65rem; color: #00ff88;
-      letter-spacing: 0.2em; margin-bottom: 0.6rem;
+      font-size: 0.65rem;
+      color: #00ff88;
+      letter-spacing: 0.2em;
+      margin-bottom: 0.6rem;
     }
+
     .proj-title {
       font-family: 'Orbitron', monospace;
-      font-size: 0.95rem; font-weight: 700;
-      color: #fff; margin-bottom: 0.8rem;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.8rem;
     }
+
     .proj-desc {
-      font-size: 0.88rem; color: #5a8a6a;
-      margin-bottom: 1.4rem; line-height: 1.6;
+      font-size: 0.88rem;
+      color: #5a8a6a;
+      margin-bottom: 1.4rem;
+      line-height: 1.6;
       flex: 1;
     }
+
     .proj-footer {
-      display: flex; justify-content: space-between;
-      align-items: center; flex-wrap: wrap; gap: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
     }
-    .proj-langs { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+
+    .proj-langs {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+
     .lang-badge {
       font-family: 'Share Tech Mono', monospace;
-      font-size: 0.65rem; padding: 0.2rem 0.5rem;
+      font-size: 0.65rem;
+      padding: 0.2rem 0.5rem;
       border: 1px solid #007a3e;
       color: #00c966;
     }
+
     .proj-link {
       font-family: 'Share Tech Mono', monospace;
-      font-size: 0.72rem; color: #00ff88;
-      text-decoration: none; letter-spacing: 0.1em;
+      font-size: 0.72rem;
+      color: #00ff88;
+      text-decoration: none;
+      letter-spacing: 0.1em;
       transition: text-shadow 0.2s;
     }
-    .proj-link:hover { text-shadow: 0 0 10px #00ff88; }
+
+    .proj-link:hover {
+      text-shadow: 0 0 10px #00ff88;
+    }
   </style>
 </head>
+
 <body>
-<canvas id="matrix-bg"></canvas>
+  <canvas id="matrix-bg"></canvas>
 
-<header>
-  <nav>
-    <a href="../index.html" class="nav-logo">MS://PORTFOLIO</a>
-    <ul>
-      <li><a href="../index.html">HOME</a></li>
-      <li><a href="chisono.html">CHI_SONO</a></li>
-      <li><a href="competenze.html">SKILLS</a></li>
-      <li><a href="progetti.html">PROGETTI</a></li>
-      <li><a href="contatti.html">CONTATTI</a></li>
-      <li><a href="faq.html">FAQ</a></li>
-    </ul>
-  </nav>
-</header>
+  <header>
+    <nav>
+      <a href="../index.html" class="nav-logo">MS://PORTFOLIO</a>
+      <ul>
+        <li><a href="../index.html">HOME</a></li>
+        <li><a href="chisono.html">CHI_SONO</a></li>
+        <li><a href="competenze.html">SKILLS</a></li>
+        <li><a href="progetti.html">PROGETTI</a></li>
+        <li><a href="contatti.html">CONTATTI</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<main>
-  <div class="sec-header reveal">
-    <span class="sec-num">03</span>
-    <h1>PROGETTI</h1>
-    <div class="sec-line"></div>
-  </div>
-
-  <div class="search-wrap reveal">
-    <input type="text" class="search-input" id="searchInput" placeholder="Cerca progetto...">
-  </div>
-
-  <div class="projects-grid" id="projectsGrid">
-
-
-
-    <div class="project-card reveal" data-title="orario scolastico html css">
-      <div class="proj-tag">▸ WEB</div>
-      <div class="proj-title">Orario Scolastico</div>
-      <div class="proj-desc">Pagina HTML + CSS con tabella dell'orario della classe 4ª C INFO e link alle pagine dei singoli professori.</div>
-      <div class="proj-footer">
-        <div class="proj-langs">
-          <span class="lang-badge">HTML</span>
-          <span class="lang-badge">CSS</span>
-        </div>
-        <a href="../Esercizio2/index.html" class="proj-link">Web →</a>
-      </div>
+  <main>
+    <div class="sec-header reveal">
+      <span class="sec-num">03</span>
+      <h1>PROGETTI</h1>
+      <div class="sec-line"></div>
     </div>
 
-    <div class="project-card reveal" data-title="mondo animali fauna html css">
-      <div class="proj-tag">▸ WEB</div>
-      <div class="proj-title">Il Mondo degli Animali</div>
-      <div class="proj-desc">Sito sulla fauna mondiale realizzato con HTML + CSS, basato su una consegna scolastica e personalizzato esteticamente.</div>
-      <div class="proj-footer">
-        <div class="proj-langs">
-          <span class="lang-badge">HTML</span>
-          <span class="lang-badge">CSS</span>
-        </div>
-        <a href="../Esercizio1/index.html" class="proj-link">Web →</a>
-      </div>
+    <div class="search-wrap reveal">
+      <input type="text" class="search-input" id="searchInput" placeholder="Cerca progetto...">
     </div>
 
-    <div class="project-card reveal" data-title="mantova html css">
-      <div class="proj-tag">▸ WEB</div>
-      <div class="proj-title">Mantova</div>
-      <div class="proj-desc">Pagina HTML + CSS sul comune di Mantova, personalizzata secondo le indicazioni della consegna con layout curato.</div>
-      <div class="proj-footer">
-        <div class="proj-langs">
-          <span class="lang-badge">HTML</span>
-          <span class="lang-badge">CSS</span>
+    <div class="projects-grid" id="projectsGrid">
+
+
+
+      <div class="project-card reveal" data-title="orario scolastico html css">
+        <div class="proj-tag">▸ WEB</div>
+        <div class="proj-title">Orario Scolastico</div>
+        <div class="proj-desc">Pagina HTML + CSS con tabella dell'orario della classe 4ª C INFO e link alle pagine dei
+          singoli professori.</div>
+        <div class="proj-footer">
+          <div class="proj-langs">
+            <span class="lang-badge">HTML</span>
+            <span class="lang-badge">CSS</span>
+          </div>
+          <a href="../Esercizio2/index.html" class="proj-link">Web →</a>
         </div>
-        <a href="../Esercizio3/index.html" class="proj-link">Web →</a>
       </div>
-    </div>
 
-    <div class="project-card reveal" data-title="tavola pitagorica javascript html css">
-      <div class="proj-tag">▸ WEB + JS</div>
-      <div class="proj-title">Tavola Pitagorica</div>
-      <div class="proj-desc">Tavola 10×10 generata dinamicamente con JavaScript. I valori pari vengono evidenziati automaticamente in rosso.</div>
-      <div class="proj-footer">
-        <div class="proj-langs">
-          <span class="lang-badge">HTML</span>
-          <span class="lang-badge">CSS</span>
-          <span class="lang-badge">JS</span>
+      <div class="project-card reveal" data-title="mondo animali fauna html css">
+        <div class="proj-tag">▸ WEB</div>
+        <div class="proj-title">Il Mondo degli Animali</div>
+        <div class="proj-desc">Sito sulla fauna mondiale realizzato con HTML + CSS, basato su una consegna scolastica e
+          personalizzato esteticamente.</div>
+        <div class="proj-footer">
+          <div class="proj-langs">
+            <span class="lang-badge">HTML</span>
+            <span class="lang-badge">CSS</span>
+          </div>
+          <a href="../Esercizio1/index.html" class="proj-link">Web →</a>
         </div>
-        <a href="../Esercizio4/index.html" class="proj-link">Web →</a>
       </div>
-    </div>
 
-    <div class="project-card reveal" data-title="lampadina accesa spenta javascript">
-      <div class="proj-tag">▸ WEB + JS</div>
-      <div class="proj-title">Lampadina On / Off</div>
-      <div class="proj-desc">Interazione DOM: cambio testo dinamico, accensione e spegnimento lampadina con variazione colore sfondo. Console log integrata.</div>
-      <div class="proj-footer">
-        <div class="proj-langs">
-          <span class="lang-badge">HTML</span>
-          <span class="lang-badge">CSS</span>
-          <span class="lang-badge">JS</span>
+      <div class="project-card reveal" data-title="mantova html css">
+        <div class="proj-tag">▸ WEB</div>
+        <div class="proj-title">Mantova</div>
+        <div class="proj-desc">Pagina HTML + CSS sul comune di Mantova, personalizzata secondo le indicazioni della
+          consegna con layout curato.</div>
+        <div class="proj-footer">
+          <div class="proj-langs">
+            <span class="lang-badge">HTML</span>
+            <span class="lang-badge">CSS</span>
+          </div>
+          <a href="../Esercizio3/index.html" class="proj-link">Web →</a>
         </div>
-        <a href="../Esercizio5/index.html" class="proj-link">Web →</a>
       </div>
-    </div>
 
-    <div class="project-card reveal" data-title="paragrafi scomparsa javascript">
-      <div class="proj-tag">▸ WEB + JS</div>
-      <div class="proj-title">Paragrafi a Scomparsa</div>
-      <div class="proj-desc">Pagina con paragrafi a scomparsa gestiti tramite eventi click del mouse, con animazioni CSS e toggle di visibilità.</div>
-      <div class="proj-footer">
-        <div class="proj-langs">
-          <span class="lang-badge">HTML</span>
-          <span class="lang-badge">CSS</span>
-          <span class="lang-badge">JS</span>
+      <div class="project-card reveal" data-title="tavola pitagorica javascript html css">
+        <div class="proj-tag">▸ WEB + JS</div>
+        <div class="proj-title">Tavola Pitagorica</div>
+        <div class="proj-desc">Tavola 10×10 generata dinamicamente con JavaScript. I valori pari vengono evidenziati
+          automaticamente in rosso.</div>
+        <div class="proj-footer">
+          <div class="proj-langs">
+            <span class="lang-badge">HTML</span>
+            <span class="lang-badge">CSS</span>
+            <span class="lang-badge">JS</span>
+          </div>
+          <a href="../Esercizio4/index.html" class="proj-link">Web →</a>
         </div>
-        <a href="../Esercizio6/index.html" class="proj-link">Web →</a>
       </div>
-    </div>
 
-    <div class="project-card reveal" data-title="esempi input form html">
-      <div class="proj-tag">▸ WEB</div>
-      <div class="proj-title">Esempi Input</div>
-      <div class="proj-desc">Raccolta di tutti i diversi tipi di input HTML: text, radio, checkbox, select, range, date e molto altro.</div>
-      <div class="proj-footer">
-        <div class="proj-langs">
-          <span class="lang-badge">HTML</span>
-          <span class="lang-badge">JS</span>
+      <div class="project-card reveal" data-title="lampadina accesa spenta javascript">
+        <div class="proj-tag">▸ WEB + JS</div>
+        <div class="proj-title">Lampadina On / Off</div>
+        <div class="proj-desc">Interazione DOM: cambio testo dinamico, accensione e spegnimento lampadina con variazione
+          colore sfondo. Console log integrata.</div>
+        <div class="proj-footer">
+          <div class="proj-langs">
+            <span class="lang-badge">HTML</span>
+            <span class="lang-badge">CSS</span>
+            <span class="lang-badge">JS</span>
+          </div>
+          <a href="../Esercizio5/index.html" class="proj-link">Web →</a>
         </div>
-        <a href="../Esercizio7/index.html" class="proj-link">Web →</a>
       </div>
-    </div>
 
-    <div class="project-card reveal" data-title="registrazione form validazione javascript">
-      <div class="proj-tag">▸ WEB + JS</div>
-      <div class="proj-title">Pagina Registrazione</div>
-      <div class="proj-desc">Prototipo di form di registrazione con validazione JS, diversi tipi di input e pagina termini di servizio separata.</div>
-      <div class="proj-footer">
-        <div class="proj-langs">
-          <span class="lang-badge">HTML</span>
-          <span class="lang-badge">CSS</span>
-          <span class="lang-badge">JS</span>
+      <div class="project-card reveal" data-title="paragrafi scomparsa javascript">
+        <div class="proj-tag">▸ WEB + JS</div>
+        <div class="proj-title">Paragrafi a Scomparsa</div>
+        <div class="proj-desc">Pagina con paragrafi a scomparsa gestiti tramite eventi click del mouse, con animazioni
+          CSS e toggle di visibilità.</div>
+        <div class="proj-footer">
+          <div class="proj-langs">
+            <span class="lang-badge">HTML</span>
+            <span class="lang-badge">CSS</span>
+            <span class="lang-badge">JS</span>
+          </div>
+          <a href="../Esercizio6/index.html" class="proj-link">Web →</a>
         </div>
-        <a href="../Esercizio8/index.html" class="proj-link">Web →</a>
       </div>
-    </div>
 
-    <div class="project-card reveal" data-title="quiz informatica javascript">
-      <div class="proj-tag">▸ WEB + JS</div>
-      <div class="proj-title">Quiz di Informatica</div>
-      <div class="proj-desc">Prototipo di quiz a risposta multipla su argomenti di informatica, gestito interamente lato client con JavaScript.</div>
-      <div class="proj-footer">
-        <div class="proj-langs">
-          <span class="lang-badge">HTML</span>
-          <span class="lang-badge">JS</span>
+      <div class="project-card reveal" data-title="esempi input form html">
+        <div class="proj-tag">▸ WEB</div>
+        <div class="proj-title">Esempi Input</div>
+        <div class="proj-desc">Raccolta di tutti i diversi tipi di input HTML: text, radio, checkbox, select, range,
+          date e molto altro.</div>
+        <div class="proj-footer">
+          <div class="proj-langs">
+            <span class="lang-badge">HTML</span>
+            <span class="lang-badge">JS</span>
+          </div>
+          <a href="../Esercizio7/index.html" class="proj-link">Web →</a>
         </div>
-        <a href="../Esercizio9/index.html" class="proj-link">Web →</a>
       </div>
+
+      <div class="project-card reveal" data-title="registrazione form validazione javascript">
+        <div class="proj-tag">▸ WEB + JS</div>
+        <div class="proj-title">Pagina Registrazione</div>
+        <div class="proj-desc">Prototipo di form di registrazione con validazione JS, diversi tipi di input e pagina
+          termini di servizio separata.</div>
+        <div class="proj-footer">
+          <div class="proj-langs">
+            <span class="lang-badge">HTML</span>
+            <span class="lang-badge">CSS</span>
+            <span class="lang-badge">JS</span>
+          </div>
+          <a href="../Esercizio8/index.html" class="proj-link">Web →</a>
+        </div>
+      </div>
+
+      <div class="project-card reveal" data-title="quiz informatica javascript">
+        <div class="proj-tag">▸ WEB + JS</div>
+        <div class="proj-title">Quiz di Informatica</div>
+        <div class="proj-desc">Prototipo di quiz a risposta multipla su argomenti di informatica, gestito interamente
+          lato client con JavaScript.</div>
+        <div class="proj-footer">
+          <div class="proj-langs">
+            <span class="lang-badge">HTML</span>
+            <span class="lang-badge">JS</span>
+          </div>
+          <a href="../Esercizio9/index.html" class="proj-link">Web →</a>
+        </div>
+      </div>
+
     </div>
+  </main>
 
-  </div>
-</main>
+  <footer>
+    <p>&copy; 2026 <span>Mohammad Shayan</span> — Portfolio — ISS Jean Monnet</p>
+  </footer>
 
-<footer>
-  <p>&copy; 2026 <span>Mohammad Shayan</span> — Portfolio — ISS Jean Monnet</p>
-</footer>
-
-<script src="../main.js"></script>
-<script>
-  document.getElementById('searchInput').addEventListener('input', function () {
-    const q = this.value.toLowerCase();
-    document.querySelectorAll('.project-card').forEach(card => {
-      card.style.display = card.dataset.title.includes(q) ? '' : 'none';
+  <script src="../main.js"></script>
+  <script>
+    document.getElementById('searchInput').addEventListener('input', function () {
+      const q = this.value.toLowerCase();
+      document.querySelectorAll('.project-card').forEach(card => {
+        card.style.display = card.dataset.title.includes(q) ? '' : 'none';
+      });
     });
-  });
-</script>
+  </script>
 </body>
+
 </html>
