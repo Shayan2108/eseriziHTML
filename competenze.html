@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Competenze — Mohammad Shayan</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.3rem;
+    }
+
+    .skill-card {
+      background: #0b120b;
+      border: 1px solid rgba(0, 255, 136, 0.20);
+      padding: 1.6rem;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.25s;
+    }
+
+    .skill-card:hover {
+      border-color: #00c966;
+      transform: translateY(-4px);
+      box-shadow: 0 0 25px rgba(0, 255, 136, 0.07);
+    }
+
+    .skill-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 2px;
+      width: 0;
+      background: #00ff88;
+      transition: width 0.4s ease;
+    }
+
+    .skill-card:hover::after {
+      width: 100%;
+    }
+
+    .skill-icon {
+      font-size: 1.6rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .skill-name {
+      font-family: 'Orbitron', monospace;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #00ff88;
+      margin-bottom: 0.4rem;
+    }
+
+    .skill-desc {
+      font-size: 0.88rem;
+      color: #5a8a6a;
+      margin-bottom: 1rem;
+    }
+
+    .skill-bar {
+      height: 4px;
+      background: #1a2a1a;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .skill-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #007a3e, #00ff88);
+      box-shadow: 0 0 8px rgba(0, 255, 136, 0.5);
+      width: 0;
+      transition: width 1.2s ease;
+    }
+
+    .skill-card.visible .skill-fill {
+      width: var(--level);
+    }
+
+    .skill-pct {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.7rem;
+      color: #5a8a6a;
+      margin-top: 0.4rem;
+      text-align: right;
+    }
+
+    /* tools section */
+    .tools-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 0.5rem;
+    }
+
+    .tool-badge {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.75rem;
+      padding: 0.4rem 0.9rem;
+      border: 1px solid rgba(0, 255, 136, 0.20);
+      color: #00c966;
+      background: #0b120b;
+      transition: all 0.2s;
+    }
+
+    .tool-badge:hover {
+      border-color: #00ff88;
+      color: #00ff88;
+      box-shadow: 0 0 10px rgba(0, 255, 136, 0.15);
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="matrix-bg"></canvas>
+
+  <header>
+    <nav>
+      <a href="index.html" class="nav-logo">MS://PORTFOLIO</a>
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="chisono.html">CHI_SONO</a></li>
+        <li><a href="competenze.html">SKILLS</a></li>
+        <li><a href="progetti.html">PROGETTI</a></li>
+        <li><a href="contatti.html">CONTATTI</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="sec-header reveal">
+      <span class="sec-num">02</span>
+      <h1>COMPETENZE</h1>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="skills-grid">
+
+      <div class="skill-card reveal">
+        <div class="skill-icon">☕</div>
+        <div class="skill-name">Java</div>
+        <div class="skill-desc">OOP avanzato, Java Swing, multithreading con sincronizzazione, game development a 60 FPS
+        </div>
+        <div class="skill-bar">
+          <div class="skill-fill"></div>
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-icon">🔷</div>
+        <div class="skill-name">C#</div>
+        <div class="skill-desc">WPF, Windows Forms, MVVM pattern, XML data binding, Visual Studio 2022</div>
+        <div class="skill-bar">
+          <div class="skill-fill"></div>
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-icon">⚙️</div>
+        <div class="skill-name">C++</div>
+        <div class="skill-desc">OOP, gestione manuale della memoria, puntatori, librerie esterne</div>
+        <div class="skill-bar">
+          <div class="skill-fill"></div>
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-icon">🌐</div>
+        <div class="skill-name">HTML / CSS</div>
+        <div class="skill-desc">Semantica, accessibilità, box model, layout Flexbox/Grid, responsive design</div>
+        <div class="skill-bar">
+          <div class="skill-fill"></div>
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-icon">📜</div>
+        <div class="skill-name">JavaScript</div>
+        <div class="skill-desc">DOM manipulation, gestione eventi, logica client-side, validazione form</div>
+        <div class="skill-bar">
+          <div class="skill-fill"></div>
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-icon">🐘</div>
+        <div class="skill-name">PHP</div>
+        <div class="skill-desc">Scripting lato server, elaborazione form, gestione dati</div>
+        <div class="skill-bar">
+          <div class="skill-fill"></div>
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-icon">🐍</div>
+        <div class="skill-name">Python</div>
+        <div class="skill-desc">Scripting, automazione, app background con hotkey globale e systray</div>
+        <div class="skill-bar">
+          <div class="skill-fill"></div>
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-icon">🌿</div>
+        <div class="skill-name">Git &amp; GitHub</div>
+        <div class="skill-desc">Versionamento, branch, commit, repository pubbliche su GitHub</div>
+        <div class="skill-bar">
+          <div class="skill-fill"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- TOOLS -->
+    <div class="mt-4">
+      <div class="sec-header reveal">
+        <span class="sec-num">02.1</span>
+        <h2 class="h2-medium">STRUMENTI</h2>
+        <div class="sec-line"></div>
+      </div>
+      <div class="tools-grid reveal">
+        <span class="tool-badge">Visual Studio 2022</span>
+        <span class="tool-badge">VS Code</span>
+        <span class="tool-badge">GitHub</span>
+        <span class="tool-badge">WPF Designer</span>
+        <span class="tool-badge">Windows Forms</span>
+        <span class="tool-badge">XML / CSV</span>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 <span>Mohammad Shayan</span> — Portfolio — ISS Jean Monnet</p>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+    /* animate skill bars on card visible */
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('visible');
+      });
+    }, { threshold: 0.2 });
+    document.querySelectorAll('.skill-card').forEach(c => io.observe(c));
+  </script>
+</body>
+
+</html>

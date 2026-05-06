@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contatti — Mohammad Shayan</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .contacts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.3rem; margin-bottom: 4rem;
+    }
+    .contact-card {
+      background: #0b120b;
+      border: 1px solid rgba(0,255,136,0.20);
+      padding: 2.2rem; text-align: center;
+      transition: all 0.25s; position: relative;
+    }
+    .contact-card::before {
+      content: ''; position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 2px;
+      background: #00ff88;
+      transition: width 0.4s ease;
+    }
+    .contact-card:hover { border-color: #00ff88; box-shadow: 0 0 25px rgba(0,255,136,0.1); transform: translateY(-4px); }
+    .contact-card:hover::before { width: 100%; }
+    .contact-icon { font-size: 2.2rem; margin-bottom: 1rem; display: block; }
+    .contact-type {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.68rem; color: #5a8a6a;
+      letter-spacing: 0.25em; margin-bottom: 0.6rem;
+    }
+    .contact-val {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.95rem; color: #00ff88;
+      text-decoration: none; word-break: break-all;
+      transition: text-shadow 0.2s;
+    }
+    .contact-val:hover { text-shadow: 0 0 12px #00ff88; }
+
+    /* MESSAGE TERMINAL */
+    .terminal {
+      background: #0b120b;
+      border: 1px solid rgba(0,255,136,0.20);
+      padding: 0;
+      max-width: 640px;
+    }
+    .terminal-bar {
+      background: #111a11;
+      padding: 0.6rem 1.2rem;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.7rem; color: #00ff88;
+      letter-spacing: 0.15em;
+      border-bottom: 1px solid rgba(0,255,136,0.20);
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .terminal-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%; background: #00ff88;
+      opacity: 0.6;
+    }
+    .terminal-body { padding: 1.8rem; }
+    .term-field { margin-bottom: 1.2rem; }
+    .term-label {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.72rem; color: #5a8a6a;
+      letter-spacing: 0.15em; margin-bottom: 0.4rem; display: block;
+    }
+    .term-input, .term-textarea {
+      width: 100%;
+      background: #050a05;
+      border: 1px solid rgba(0,255,136,0.20);
+      color: #c8f0d8;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.88rem; padding: 0.65rem 1rem;
+      outline: none; transition: border-color 0.2s;
+      resize: none;
+    }
+    .term-input:focus, .term-textarea:focus {
+      border-color: #00ff88;
+      box-shadow: 0 0 10px rgba(0,255,136,0.1);
+    }
+    .term-textarea { height: 100px; }
+    .term-note {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.72rem; color: #5a8a6a;
+      margin-top: 0.8rem; line-height: 1.6;
+    }
+    .term-note a { color: #00ff88; }
+  </style>
+</head>
+<body>
+<canvas id="matrix-bg"></canvas>
+
+<header>
+  <nav>
+    <a href="index.html" class="nav-logo">MS://PORTFOLIO</a>
+    <ul>
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="chisono.html">CHI_SONO</a></li>
+      <li><a href="competenze.html">SKILLS</a></li>
+      <li><a href="progetti.html">PROGETTI</a></li>
+      <li><a href="contatti.html">CONTATTI</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <div class="sec-header reveal">
+    <span class="sec-num">04</span>
+    <h1>CONTATTI</h1>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="contacts-grid">
+    <div class="contact-card reveal">
+      <span class="contact-icon">🐙</span>
+      <div class="contact-type">GITHUB</div>
+      <a href="https://github.com/shayan2108" class="contact-val" target="_blank">github.com/shayan2108</a>
+    </div>
+    <div class="contact-card reveal">
+      <span class="contact-icon">💼</span>
+      <div class="contact-type">LINKEDIN</div>
+      <a href="#" class="contact-val">Mohammad Shayan</a>
+    </div>
+    <div class="contact-card reveal">
+      <span class="contact-icon">📧</span>
+      <div class="contact-type">EMAIL</div>
+      <a href="mailto:shayan@email.it" class="contact-val">shayan@email.it</a>
+    </div>
+  </div>
+
+
+</main>
+
+<footer>
+  <p>&copy; 2026 <span>Mohammad Shayan</span> — Portfolio — ISS Jean Monnet</p>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

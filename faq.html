@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ — Mohammad Shayan</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .faq-list { display: flex; flex-direction: column; gap: 0.9rem; max-width: 820px; }
+
+    .faq-item {
+      background: #0b120b;
+      border: 1px solid rgba(0,255,136,0.20);
+      overflow: hidden; transition: border-color 0.2s;
+    }
+    .faq-item.open { border-color: #007a3e; }
+
+    .faq-q {
+      display: flex; justify-content: space-between;
+      align-items: center; padding: 1.3rem 1.6rem;
+      cursor: pointer; user-select: none;
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 600; font-size: 1.04rem;
+      color: #c8f0d8; transition: color 0.2s;
+    }
+    .faq-q:hover { color: #00ff88; }
+
+    .faq-chevron {
+      font-family: 'Share Tech Mono', monospace;
+      color: #00ff88; font-size: 1.2rem;
+      transition: transform 0.3s; flex-shrink: 0;
+    }
+    .faq-item.open .faq-chevron { transform: rotate(45deg); }
+
+    .faq-a {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s;
+      padding: 0 1.6rem; color: #5a8a6a; font-size: 0.95rem;
+    }
+    .faq-item.open .faq-a { max-height: 300px; padding: 0 1.6rem 1.4rem; }
+  </style>
+</head>
+<body>
+<canvas id="matrix-bg"></canvas>
+
+<header>
+  <nav>
+    <a href="index.html" class="nav-logo">MS://PORTFOLIO</a>
+    <ul>
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="chisono.html">CHI_SONO</a></li>
+      <li><a href="competenze.html">SKILLS</a></li>
+      <li><a href="progetti.html">PROGETTI</a></li>
+      <li><a href="contatti.html">CONTATTI</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <div class="sec-header reveal">
+    <span class="sec-num">05</span>
+    <h1>FAQ</h1>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="faq-list">
+
+    <div class="faq-item reveal">
+      <div class="faq-q">Cos'è questo sito e a cosa serve? <span class="faq-chevron">+</span></div>
+      <div class="faq-a">Questo portfolio raccoglie tutti i miei progetti in modo da rendere semplice e compatta la loro consultazione. È anche il mio biglietto da visita digitale.</div>
+    </div>
+
+    <div class="faq-item reveal">
+      <div class="faq-q">Come è organizzato il sito? <span class="faq-chevron">+</span></div>
+      <div class="faq-a">Il sito è composto da più pagine separate: Home, Chi Sono, Competenze, Progetti (con pagine dettaglio per ogni progetto), Contatti e questa FAQ.</div>
+    </div>
+
+    <div class="faq-item reveal">
+      <div class="faq-q">Con quali tecnologie è stato realizzato? <span class="faq-chevron">+</span></div>
+      <div class="faq-a">Interamente con HTML, CSS e JavaScript puro — nessun framework esterno, nessuna dipendenza. Un file CSS condiviso e un JS per gli effetti comuni.</div>
+    </div>
+
+
+
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2026 <span>Mohammad Shayan</span> — Portfolio — ISS Jean Monnet</p>
+</footer>
+
+<script src="main.js"></script>
+<script>
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+</script>
+</body>
+</html>

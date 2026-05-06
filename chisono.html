@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chi Sono — Mohammad Shayan</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .bio-text p {
+      color: #c8f0d8;
+      margin-bottom: 1.2rem;
+      font-size: 1.05rem;
+    }
+
+    .bio-text a {
+      color: #00ff88;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.85rem;
+    }
+
+    .timeline {
+      margin-top: 2.5rem;
+    }
+
+    .tl-item {
+      display: flex;
+      gap: 1.2rem;
+      padding-bottom: 1.8rem;
+      position: relative;
+    }
+
+    .tl-item::after {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 20px;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(180deg, #007a3e, transparent);
+    }
+
+    .tl-dot {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      border: 2px solid #00ff88;
+      background: #050a05;
+      position: relative;
+      z-index: 1;
+      margin-top: 4px;
+    }
+
+    .tl-year {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.72rem;
+      color: #00ff88;
+      margin-bottom: 0.2rem;
+    }
+
+    .tl-text {
+      font-size: 0.95rem;
+      color: #5a8a6a;
+    }
+
+    @media (max-width: 768px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="matrix-bg"></canvas>
+
+  <header>
+    <nav>
+      <a href="index.html" class="nav-logo">MS://PORTFOLIO</a>
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="chisono.html">CHI_SONO</a></li>
+        <li><a href="competenze.html">SKILLS</a></li>
+        <li><a href="progetti.html">PROGETTI</a></li>
+        <li><a href="contatti.html">CONTATTI</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="sec-header reveal">
+      <span class="sec-num">01</span>
+      <h1>CHI SONO</h1>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="content-grid">
+      <div class="bio-text">
+        <p class="reveal">Mi chiamo <strong class="text-green">Mohammad Shayan</strong>, studente al quarto anno del
+          corso di Informatica e Telecomunicazioni presso l'Istituto Tecnico ISS Jean Monnet di Mariano Comense.</p>
+
+        <p class="reveal">Ho sviluppato competenze solide in programmazione orientata agli oggetti, sviluppo desktop con
+          WPF e C#, Java Swing con multithreading, web development e scripting Python. Mi piace costruire progetti
+          funzionali che uniscono logica e creatività.</p>
+
+        <blockquote class="reveal">
+          <p>"Non aver paura dei computer. Abbi paura della loro mancanza."</p>
+          <p>— Isaac Asimov</p>
+        </blockquote>
+
+        <div class="reveal mt-2">
+          <a href="competenze.html">&gt; Vedi le mie competenze →</a>
+        </div>
+      </div>
+
+      <div class="info-panel reveal">
+        <div class="info-row"><span class="info-key">NOME</span><span class="info-val">Shayan</span></div>
+        <div class="info-row"><span class="info-key">COGNOME</span><span class="info-val">Mohammad Attari</span></div>
+        <div class="info-row"><span class="info-key">SCUOLA</span><span class="info-val">ISS Jean Monnet</span></div>
+        <div class="info-row"><span class="info-key">CITTÀ</span><span class="info-val">Mariano Comense</span></div>
+        <div class="info-row"><span class="info-key">RESIDENZA</span><span class="info-val">Cabiate, CO</span></div>
+        <div class="info-row"><span class="info-key">INDIRIZZO</span><span class="info-val">Informatica &amp; TLC</span>
+        </div>
+        <div class="info-row"><span class="info-key">ANNO</span><span class="info-val">4° (diploma 2027)</span></div>
+        <div class="info-row"><span class="info-key">GITHUB</span><span class="info-val">shayan2108</span></div>
+        <div class="info-row"><span class="info-key">LINGUE</span><span class="info-val">IT / UR / PK / EN</span></div>
+        <div class="info-row"><span class="info-key">STATUS</span>
+          <span class="info-val blink-slow">● DISPONIBILE</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 <span>Mohammad Shayan</span> — Portfolio — ISS Jean Monnet</p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+
+</html>

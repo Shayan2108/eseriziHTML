@@ -1,14 +1,214 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main Page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home — Mohammad Shayan</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* HOME-SPECIFIC */
+    #home-section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 8vw;
+      position: relative;
+    }
+
+    .home-tag {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.8rem;
+      color: #00ff88;
+      letter-spacing: 0.28em;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.2s forwards;
+    }
+
+    .home-name {
+      font-family: 'Orbitron', monospace;
+      font-size: clamp(2.8rem, 8vw, 6rem);
+      font-weight: 900;
+      line-height: 1;
+      color: #fff;
+      margin-bottom: 0.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.4s forwards;
+    }
+
+    .home-name span {
+      color: #00ff88;
+      text-shadow: 0 0 30px #00ff88, 0 0 60px rgba(0, 255, 136, 0.35);
+    }
+
+    .home-subtitle {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: clamp(0.8rem, 1.8vw, 1rem);
+      color: #5a8a6a;
+      margin-bottom: 3rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.6s forwards;
+    }
+
+    .home-btns {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.8s forwards;
+    }
+
+    .home-stats {
+      position: absolute;
+      bottom: 4rem;
+      right: 8vw;
+      display: flex;
+      gap: 3rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 1s forwards;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: 'Orbitron', monospace;
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: #00ff88;
+      text-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+      display: block;
+    }
+
+    .stat-label {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.62rem;
+      color: #5a8a6a;
+      letter-spacing: 0.22em;
+    }
+
+    /* decorative corner */
+    .home-deco {
+      position: absolute;
+      top: 5rem;
+      right: 8vw;
+      width: 200px;
+      height: 200px;
+      border: 1px solid rgba(0, 255, 136, 0.20);
+      opacity: 0.3;
+      animation: fadeUp 1.2s 1.2s forwards;
+    }
+
+    .home-deco::before {
+      content: '';
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      right: 15px;
+      bottom: 15px;
+      border: 1px solid rgba(0, 255, 136, 0.20);
+    }
+
+    .home-deco::after {
+      content: '';
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      right: 30px;
+      bottom: 30px;
+      border: 1px solid rgba(0, 255, 136, 0.20);
+    }
+
+    @media (max-width: 768px) {
+      .home-stats {
+        position: static;
+        margin-top: 3rem;
+      }
+
+      .home-deco {
+        display: none;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <header>ciao questo è il posto dove puoi navigare nei progetti</header>
+  <canvas id="matrix-bg"></canvas>
+
+  <header>
+    <nav>
+      <a href="index.html" class="nav-logo">MS://PORTFOLIO</a>
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="chisono.html">CHI_SONO</a></li>
+        <li><a href="competenze.html">SKILLS</a></li>
+        <li><a href="progetti.html">PROGETTI</a></li>
+        <li><a href="contatti.html">CONTATTI</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="p-0">
+    <section id="home-section">
+      <div class="home-deco"></div>
+      <div class="home-tag">&gt;&gt; PORTFOLIO_v2026.1 — LOADING COMPLETE</div>
+      <div class="home-name">Mohammad<br><span>Shayan</span></div>
+      <div class="home-subtitle">
+        Student Developer @ ISS Jean Monnet — Informatica &amp; Telecomunicazioni<span class="cursor"></span>
+      </div>
+      <div class="home-btns">
+        <a href="progetti.html" class="btn-primary">VEDI PROGETTI</a>
+        <a href="contatti.html" class="btn-outline">CONTATTAMI</a>
+        <a href="chisono.html" class="btn-outline">CHI SONO</a>
+      </div>
+      <div class="home-stats">
+        <div class="stat"><span class="stat-num">4°</span><span class="stat-label">ANNO</span></div>
+        <div class="stat"><span class="stat-num">7+</span><span class="stat-label">TECNOLOGIE</span></div>
+        <div class="stat"><span class="stat-num">9+</span><span class="stat-label">PROGETTI</span></div>
+      </div>
+    </section>
+
+    <!-- quick nav cards -->
+    <section class="quick-nav-section">
+      <div class="grid-cards">
+        <a href="chisono.html" class="card">
+          <div class="card-number">01</div>
+          <div class="card-title">Chi Sono</div>
+          <div class="card-desc">Profilo e background</div>
+        </a>
+        <a href="competenze.html" class="card">
+          <div class="card-number">02</div>
+          <div class="card-title">Competenze</div>
+          <div class="card-desc">Linguaggi e tecnologie</div>
+        </a>
+        <a href="progetti.html" class="card">
+          <div class="card-number">03</div>
+          <div class="card-title">Progetti</div>
+          <div class="card-desc">Tutti i miei lavori</div>
+        </a>
+        <a href="contatti.html" class="card">
+          <div class="card-number">04</div>
+          <div class="card-title">Contatti</div>
+          <div class="card-desc">GitHub, LinkedIn, Email</div>
+        </a>
+        <a href="faq.html" class="card">
+          <div class="card-number">05</div>
+          <div class="card-title">FAQ</div>
+          <div class="card-desc">Domande frequenti</div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 <span>Mohammad Shayan</span> — Portfolio — ISS Jean Monnet</p>
+  </footer>
+
+  <script src="main.js"></script>
 </body>
 
 </html>
